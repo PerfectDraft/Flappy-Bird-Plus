@@ -35,12 +35,12 @@
 1742980201 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\gameobject.h
 	"Game.h"
 
-1742980006 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\game.h
+1742991031 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\game.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
 
-1742981512 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\texturemanager.h
+1742991033 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\texturemanager.h
 	<SDL.h>
 	<SDL_image.h>
 	"Game.h"
@@ -53,7 +53,7 @@
 1742981586 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\texturemanager.cpp
 	"TextureManager.h"
 
-1742982719 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\game.cpp
+1742991002 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\super-ninja\super-ninja\game.cpp
 	"Game.h"
 	"TextureManager.h"
 	"GameObject.h"

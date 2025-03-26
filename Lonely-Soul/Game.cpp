@@ -14,7 +14,9 @@ Game::Game()
 
 }
 
-Game::~Game() {}
+Game::~Game() {
+
+}
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -34,17 +36,20 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         {
             std::cout<<"Window created" << std::endl;
         }
-        renderer = SDL_CreateRenderer(window, -1, 0);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         if(renderer)
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout<<"Render created" << std::endl;
         }
         isRunning = true;
+        player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", 0, 0);
+        enemy = new GameObject("Assets/Images/bomber_goblin_idle_anim_strip_4-1.png", 100, 0);
+        map = new Map();
     }
-    player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", 0, 0);
-    enemy = new GameObject("Assets/Images/bomber_goblin_idle_anim_strip_4-1.png", 100, 0);
-    map = new Map();
+    else{
+        printf("SDL could not be initialize! SDL error: %s\n", SDL_GetError());
+    }
 }
 
 void Game::handleEvents()
