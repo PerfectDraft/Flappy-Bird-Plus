@@ -45,26 +45,13 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
-		<Unit filename="Assets/Images/Spongebob.png" />
-		<Unit filename="Assets/Images/arrow.png" />
-		<Unit filename="Assets/Images/background.png" />
-		<Unit filename="Assets/Images/bikiniBottom.jpg" />
-		<Unit filename="Assets/Images/colors.png" />
-		<Unit filename="Assets/Images/dots.png" />
-		<Unit filename="Assets/Images/down.bmp" />
-		<Unit filename="Assets/Images/fadein.png" />
-		<Unit filename="Assets/Images/fadeout.png" />
-		<Unit filename="Assets/Images/field.png" />
-		<Unit filename="Assets/Images/foo.png" />
-		<Unit filename="Assets/Images/herochar_spritesheet(new)-1.png" />
-		<Unit filename="Assets/Images/left.bmp" />
-		<Unit filename="Assets/Images/press.bmp" />
-		<Unit filename="Assets/Images/right.bmp" />
-		<Unit filename="Assets/Images/spiderMan.png" />
-		<Unit filename="Assets/Images/stretch.bmp" />
-		<Unit filename="Assets/Images/texture.png" />
-		<Unit filename="Assets/Images/up.bmp" />
+		<Unit filename="Assets/Fonts/lazy.ttf" />
+		<Unit filename="Assets/Images/herochar_idle_anim_strip_4-0.png" />
 		<Unit filename="Assets/Sounds/[Lyric+vietsub] I&apos;ll Be There - Gabriela Bee (cover) - I&apos;ll be there for the highs and lows.mp3" />
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
+		<Unit filename="TextureManager.cpp" />
+		<Unit filename="TextureManager.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
