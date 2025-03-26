@@ -4,10 +4,9 @@
 
 Game* game = nullptr;
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     const int FPS = 60;
-    const int frameDelay = 1000/FPS;
+    const int frameDelay = 1000 / FPS;
 
     Uint32 frameStart;
     int frametime;
@@ -16,10 +15,8 @@ int main(int argc, char* argv[])
 
     game->init("Super ninja", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                800, 640, false);
-               ///640 chia het cho 32
 
-    while(game->running()){
-
+    while (game->running()) {
         frameStart = SDL_GetTicks();
 
         game->handleEvents();
@@ -27,7 +24,7 @@ int main(int argc, char* argv[])
         game->render();
 
         frametime = SDL_GetTicks() - frameStart;
-        if(frameDelay > frametime){
+        if (frameDelay > frametime) {
             SDL_Delay(frameDelay - frametime);
         }
     }

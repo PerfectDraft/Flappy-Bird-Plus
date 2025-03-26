@@ -65,3 +65,21 @@ void Map::drawMap(){
         }
     }
 }
+
+int Map::GetTile(int x, int y) {
+    // Chuyển vị trí pixel (x, y) thành chỉ số ô (row, col)
+    int row = y / 32;  // Mỗi ô cao 32 pixel
+    int col = x / 32;  // Mỗi ô rộng 32 pixel
+
+    // Kiểm tra giới hạn của bản đồ
+    if (row >= 0 && row < 20 && col >= 0 && col < 25) {
+        return map[row][col];
+    }
+    return 0;  // Nếu ngoài bản đồ, coi như là nước (không đi được)
+}
+
+Map::~Map(){
+    SDL_DestroyTexture(dirt);
+    SDL_DestroyTexture(grass);
+    SDL_DestroyTexture(water);
+}

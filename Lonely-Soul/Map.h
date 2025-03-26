@@ -3,13 +3,14 @@
 
 #include "Game.h"
 
-class Map{
+class Map {
 public:
     Map();
     ~Map();
 
     void loadMap(int arr[20][25]);
     void drawMap();
+    int GetTile(int x, int y);
 
 private:
     SDL_Rect src, dest;
