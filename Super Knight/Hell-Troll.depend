@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1742930874 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\main.cpp
+	<SDL.h>
+	<SDL_image.h>
+	"Game.h"
+
+1742930195 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\game.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1742976534 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\game.cpp
+	"Game.h"
+	"TextureManager.h"
+	"GameObject.h"
+
+1742931888 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\texturemanager.h
+	<SDL.h>
+	<SDL_image.h>
+
+1742931867 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\texturemanager.cpp
+	"TextureManager.h"
+
+1742976480 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\gameobject.h
+	"Game.h"
+
+1742976003 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\hell-troll\hell-troll\gameobject.cpp
+	"GameObject.h"
+	"TextureManager.h"
+
