@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Super Knight" />
+		<Option title="Super Ninja" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -46,12 +46,18 @@
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
 		<Unit filename="Assets/Fonts/lazy.ttf" />
+		<Unit filename="Assets/Images/bomber_goblin_idle_anim_strip_4-1.png" />
+		<Unit filename="Assets/Images/dirt.png" />
+		<Unit filename="Assets/Images/grass.png" />
 		<Unit filename="Assets/Images/herochar_idle_anim_strip_4-0.png" />
+		<Unit filename="Assets/Images/water.png" />
 		<Unit filename="Assets/Sounds/[Lyric+vietsub] I&apos;ll Be There - Gabriela Bee (cover) - I&apos;ll be there for the highs and lows.mp3" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="GameObject.cpp" />
 		<Unit filename="GameObject.h" />
+		<Unit filename="Map.cpp" />
+		<Unit filename="Map.h" />
 		<Unit filename="TextureManager.cpp" />
 		<Unit filename="TextureManager.h" />
 		<Unit filename="main.cpp" />

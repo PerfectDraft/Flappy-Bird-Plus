@@ -1,8 +1,13 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "Map.h"
 
-GameObject* player = nullptr;
+GameObject* player;
+GameObject* enemy;
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()
 {
@@ -37,7 +42,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         }
         isRunning = true;
     }
-    player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", renderer, 0, 0);;
+    player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", 0, 0);
+    enemy = new GameObject("Assets/Images/bomber_goblin_idle_anim_strip_4-1.png", 100, 0);
+    map = new Map();
 }
 
 void Game::handleEvents()
@@ -57,6 +64,7 @@ void Game::handleEvents()
 void Game::update()
 {
     player->Update();
+    enemy->Update();
 }
 
 void Game::render()
@@ -64,7 +72,9 @@ void Game::render()
     SDL_RenderClear(renderer);
 
     //Add stuff to render
+    map->drawMap();
     player->Render();
+    enemy->Render();
 
     SDL_RenderPresent(renderer);
 }
