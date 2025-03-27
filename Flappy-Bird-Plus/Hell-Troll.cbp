@@ -45,29 +45,21 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="Assets/Fonts/KnightWarrior-w16n8.ttf" />
 		<Unit filename="Assets/Fonts/lazy.ttf" />
-		<Unit filename="Assets/Images/Dung_yen.png" />
-		<Unit filename="Assets/Images/bomber_goblin_idle_anim_strip_4-1.png" />
-		<Unit filename="Assets/Images/dirt.png" />
-		<Unit filename="Assets/Images/grass.png" />
-		<Unit filename="Assets/Images/herochar_idle_anim_strip_4-0.png" />
-		<Unit filename="Assets/Images/water.png" />
-		<Unit filename="Assets/Sounds/[Lyric+vietsub] I&apos;ll Be There - Gabriela Bee (cover) - I&apos;ll be there for the highs and lows.mp3" />
-		<Unit filename="Dot.cpp" />
-		<Unit filename="Dot.h" />
-		<Unit filename="Game.cpp" />
-		<Unit filename="Game.h" />
-		<Unit filename="GameObject.cpp" />
-		<Unit filename="GameObject.h" />
-		<Unit filename="LTexture.cpp" />
-		<Unit filename="LTexture.h" />
-		<Unit filename="LTimer.h" />
-		<Unit filename="Map.cpp" />
-		<Unit filename="Map.h" />
-		<Unit filename="TextureManager.cpp" />
+		<Unit filename="Assets/Images/assets.png" />
+		<Unit filename="Assets/Images/icon.ico" />
+		<Unit filename="Assets/Images/icon.png" />
+		<Unit filename="Assets/Sounds/sounds_sfx_die.ogg" />
+		<Unit filename="Assets/Sounds/sounds_sfx_hit.ogg" />
+		<Unit filename="Assets/Sounds/sounds_sfx_point.ogg" />
+		<Unit filename="Assets/Sounds/sounds_sfx_swooshing.ogg" />
+		<Unit filename="Assets/Sounds/sounds_sfx_wing.ogg" />
+		<Unit filename="Background.h" />
+		<Unit filename="Bird.h" />
+		<Unit filename="Button.h" />
+		<Unit filename="RenderWindow.h" />
 		<Unit filename="TextureManager.h" />
-		<Unit filename="constants.h" />
-		<Unit filename="globals.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
