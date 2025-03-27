@@ -2,7 +2,9 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Map.h"
+#include "Dot.h"
 
+Dot* dot;
 GameObject* player;
 GameObject* enemy;
 Map* map;
@@ -36,7 +38,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             std::cout << "Render created" << std::endl;
         }
         isRunning = true;
-        player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", 200, 200);
+        player = new GameObject("Assets/Images/herochar_idle_anim_strip_4-0.png", 200, 200,
+                                "Assets/Images/Dung_yen");;
         enemy = new GameObject("Assets/Images/bomber_goblin_idle_anim_strip_4-1.png", 100, 0);
         map = new Map();
     } else {
@@ -46,43 +49,57 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 void Game::handleEvents() {
     SDL_Event event;
-    dx = 0;
-    dy = 0;
+    player_dx = 0;  // Reset hướng di chuyển của player
+    player_dy = 0;
+    enemy_dx = 0;   // Reset hướng di chuyển của enemy
+    enemy_dy = 0;
 
     while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-        case SDL_QUIT:
+        if(event.type == SDL_QUIT){
             isRunning = false;
             break;
-        case SDL_KEYDOWN:
+        }
+        else if(event.type == SDL_KEYDOWN){
             switch (event.key.keysym.sym) {
-            case SDLK_w:
+            // Phím mũi tên: điều khiển player
             case SDLK_UP:
-                dy = -1;
+                player_dy = -1;
+                break;
+            case SDLK_DOWN:
+                player_dy = 1;
+                break;
+            case SDLK_LEFT:
+                player_dx = -1;
+                break;
+            case SDLK_RIGHT:
+                player_dx = 1;
+                break;
+            // Phím WASD: điều khiển enemy
+            case SDLK_w:
+                enemy_dy = -1;
                 break;
             case SDLK_s:
-            case SDLK_DOWN:
-                dy = 1;
+                enemy_dy = 1;
                 break;
             case SDLK_a:
-            case SDLK_LEFT:
-                dx = -1;
+                enemy_dx = -1;
                 break;
             case SDLK_d:
-            case SDLK_RIGHT:
-                dx = 1;
+                enemy_dx = 1;
                 break;
             }
             break;
         default:
             break;
         }
+        dot->handleEvent( e );
     }
 }
 
 void Game::update() {
-    player->UpdateWithKeys(dx, dy, map);
-    enemy->Update();
+    player->UpdateWithKeys(player_dx, player_dy, map);
+    enemy->UpdateWithKeys(enemy_dx, enemy_dy, map);
+    dot->move();
 }
 
 void Game::render() {
@@ -90,6 +107,7 @@ void Game::render() {
     map->drawMap();
     player->Render();
     enemy->Render();
+    dot->render();
     SDL_RenderPresent(renderer);
 }
 

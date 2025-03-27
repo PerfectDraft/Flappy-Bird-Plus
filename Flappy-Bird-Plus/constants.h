@@ -1,9 +1,13 @@
 #ifndef CONSTANTS_H_INCLUDED
 #define CONSTANTS_H_INCLUDED
 
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 const int BUTTON_WIDTH = 300;
 const int BUTTON_HEIGHT = 200;
 const int TOTAL_BUTTONS = 4;
+const int WALKING_ANIMATION_FRAMES = 4;
+
 
 
 #endif // CONSTANTS_H_INCLUDED

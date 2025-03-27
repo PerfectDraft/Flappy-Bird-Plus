@@ -71,7 +71,7 @@
 	<SDL_image.h>
 	"Game.h"
 
-1742999017 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\game.h
+1742999106 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\game.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -92,15 +92,15 @@
 1742981586 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\texturemanager.cpp
 	"TextureManager.h"
 
-1742997949 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\gameobject.cpp
+1743001350 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\gameobject.cpp
 	"GameObject.h"
 	"TextureManager.h"
 
-1742998241 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\gameobject.h
+1743001483 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\gameobject.h
 	"Game.h"
 	"Map.h"
 
-1742998999 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\game.cpp
+1743001392 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\lonely-soul\lonely-soul\game.cpp
 	"Game.h"
 	"TextureManager.h"
 	"GameObject.h"
