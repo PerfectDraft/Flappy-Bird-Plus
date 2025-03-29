@@ -1,0 +1,72 @@
+# depslib dependency file v1.0
+1743272801 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\game_logic.cpp
+	"game_logic.h"
+	"constant.h"
+	"init.h"
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	<fstream>
+	<iostream>
+
+1743272376 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\game_logic.h
+	"entities.h"
+	"init.h"
+	<SDL.h>
+
+1743272348 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\entities.h
+
+1743271307 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\init.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<string>
+
+1743269253 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\constant.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743274308 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\init.cpp
+	"init.h"
+	"constant.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<iostream>
+	<string>
+
+1743273378 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\main.cpp
+	"constant.h"
+	"game_logic.h"
+	"init.h"
+	"render.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<cstdlib>
+	<ctime>
+	<fstream>
+	<iostream>
+	<sstream>
+	<string>
+
+1743272624 d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\render.h
+	"entities.h"
+	"init.h"
+	<SDL.h>
+	<string>
+
+1743272950 source:d:\uet\nam_1\ky_2\lap_trinh_nang_cao\flappy-bird-plus\flappy-bird-plus\render.cpp
+	"render.h"
+	"constant.h"
+	"init.h"
+	<SDL.h>
+	<SDL_ttf.h>
+	<sstream>
+	<string>
+

@@ -65,7 +65,7 @@ bool init() {
                  TTF_GetError());
           success = false;
         } else {
-          gameFont = TTF_OpenFont("Assets/Fonts/font.ttf", 24);
+          gameFont = TTF_OpenFont("Assets/Fonts/font.TTF", 24);
           if (!gameFont) {
             printf("Could not load font! Path error! %s\n");
             success = false;

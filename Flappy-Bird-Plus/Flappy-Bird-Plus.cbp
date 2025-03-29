@@ -45,7 +45,35 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="Assets/Fonts/font.TTF" />
+		<Unit filename="Assets/Images/Flappy_Bird_icon.png" />
+		<Unit filename="Assets/Images/background.png" />
+		<Unit filename="Assets/Images/bird.png" />
+		<Unit filename="Assets/Images/bottom_pipe.png" />
+		<Unit filename="Assets/Images/game_over_background.png" />
+		<Unit filename="Assets/Images/icon.png" />
+		<Unit filename="Assets/Images/loading_screen.png" />
+		<Unit filename="Assets/Images/scoreHistory.jpg" />
+		<Unit filename="Assets/Images/top_pipe.png" />
+		<Unit filename="Assets/Images/tutorial.png" />
+		<Unit filename="Assets/MusicBackground/In_game.mp3" />
+		<Unit filename="Assets/MusicBackground/Main_menu.mp3" />
+		<Unit filename="Assets/MusicBackground/loading.mp3" />
+		<Unit filename="Assets/Score/HighestScore.txt" />
+		<Unit filename="Assets/Sounds/die.ogg" />
+		<Unit filename="Assets/Sounds/hit.ogg" />
+		<Unit filename="Assets/Sounds/point.ogg" />
+		<Unit filename="Assets/Sounds/swooshing.ogg" />
+		<Unit filename="Assets/Sounds/wing.ogg" />
+		<Unit filename="constant.h" />
+		<Unit filename="entities.h" />
+		<Unit filename="game_logic.cpp" />
+		<Unit filename="game_logic.h" />
+		<Unit filename="init.cpp" />
+		<Unit filename="init.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="render.cpp" />
+		<Unit filename="render.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
