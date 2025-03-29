@@ -1,122 +1,120 @@
+#include "constant.h"
+#include "game_logic.h"
+#include "init.h"
+#include "render.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include <stdio.h>
+#include <SDL_mixer.h>
+#include <SDL_ttf.h>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 #include <string>
 
-bool init();
+using namespace std;
 
-bool loadMedia();
+SDL_Window *gameWindow = NULL;
+SDL_Renderer *gameRenderer = NULL;
+SDL_Texture *textureBird = NULL;
+SDL_Texture *texturePipeTop = NULL;
+SDL_Texture *texturePipeBottom = NULL;
+SDL_Texture *textureBackground = NULL;
+SDL_Texture *textureMenuBackground = NULL;
+SDL_Texture *textureHighScoreBackground = NULL;
+SDL_Texture *loadingScreenTexture = NULL;
+SDL_Texture *textureGameOverBackground = NULL;
+TTF_Font *gameFont = NULL;
 
-void close();
+Mix_Chunk *soundFlap = NULL;
+Mix_Chunk *soundHit = NULL;
+Mix_Music *musicMenu = NULL;
+Mix_Music *musicGame = NULL;
+Mix_Music *musicLoading = NULL;
+Mix_Chunk *soundPoint = NULL;
 
-SDL_Window* gWindow = NULL;
+GameState currentGameState = STATE_MENU;
+int currentScore = 0;
+int recordScore = 0;
 
-SDL_Renderer* gRenderer = NULL;
+// Vòng lặp chính
+int main(int argc, char *argv[]) {
+  srand(static_cast<unsigned int>(time(NULL)));
 
-bool init()
-{
-	bool success = true;
+  if (!init()) {
+    cerr << "Initialization failed." << endl;
+    return 1;
+  }
 
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-	{
-		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
-		success = false;
-	}
-	else
-	{
-		if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) )
-		{
-			printf( "Warning: Linear texture filtering not enabled!" );
-		}
+  if (!loadLoadingResources()) {
+    cerr << "Failed to load loading resources." << endl;
+    close();
+    return 1;
+  }
 
-		gWindow = SDL_CreateWindow( "Flappy bird plus", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-		if( gWindow == NULL )
-		{
-			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
-			success = false;
-		}
-		else
-		{
-			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
-			if( gRenderer == NULL )
-			{
-				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
-				success = false;
-			}
-			else
-			{
-				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+  Mix_PlayMusic(musicLoading, -1);
 
-				int imgFlags = IMG_INIT_PNG;
-				if( !( IMG_Init( imgFlags ) & imgFlags ) )
-				{
-					printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-					success = false;
-				}
-			}
-		}
-	}
+  // Giả lập quá trình tải
+  for (int progress = 0; progress <= 100; progress += 10) {
+    drawLoadingScreen(progress);
+    SDL_Delay(100); // Giả lập thời gian tải
+  }
 
-	return success;
-}
+  Mix_HaltMusic();
+  Mix_PlayMusic(musicMenu, -1);
 
-bool loadMedia()
-{
+  if (!loadGameResources()) {
+    cerr << "Failed to load resources." << endl;
+    close();
+    return 1;
+  }
 
-}
+  recordScore = loadHighScore(); // Load high score
 
-void close()
-{
+  bool isRunning = true;
+  FlappyBird bird = {WINDOW_WIDTH / 4, WINDOW_HEIGHT / 2, 0};
+  GamePipe pipes[MAX_PIPE_COUNT];
+  int pipeCount = MAX_PIPE_COUNT;
+  for (int i = 0; i < pipeCount; i++) {
+    pipes[i].posX = WINDOW_WIDTH + i * (WINDOW_WIDTH / pipeCount);
+    pipes[i].posY = rand() % (WINDOW_HEIGHT - PIPE_GAP_HEIGHT - 100) + 50;
+    pipes[i].initialPosY = pipes[i].posY;
+    pipes[i].verticalDirection = (rand() % 2 == 0) ? 1 : -1;
+    pipes[i].isPassed = false;
+  }
 
-	//Destroy window
-	SDL_DestroyRenderer( gRenderer );
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
-	gRenderer = NULL;
+  while (isRunning) {
+    processPlayerInput(isRunning, bird, pipes, pipeCount);
 
-	IMG_Quit();
-	SDL_Quit();
-}
+    if (currentGameState == STATE_PLAYING) {
+      bool isGameOver = false;
+      int previousScore = currentScore;
+      refreshGameState(bird, pipes, pipeCount, isGameOver);
+      drawGameScene(bird, pipes, pipeCount);
 
-int main( int argc, char* args[] )
-{
-	if( !init() )
-	{
-		printf( "Failed to initialize!\n" );
-	}
-	else
-	{
-		if( !loadMedia() )
-		{
-			printf( "Failed to load media!\n" );
-		}
-		else
-		{
-			bool quit = false;
+      if (currentScore > previousScore) {
+        Mix_PlayChannel(-1, soundPoint, 0);
+      }
 
-			SDL_Event e;
+      if (isGameOver) {
+        currentGameState = STATE_GAME_OVER;
+      }
+    } else if (currentGameState == STATE_MENU) {
+      drawMenuScreen();
+    } else if (currentGameState == STATE_GAME_OVER) {
+      drawGameOverScreen();
+    } else if (currentGameState == STATE_HIGH_SCORE) {
+      drawHighScoreScreen();
+    } else if (currentGameState == STATE_TUTORIAL) {
+      drawTutorialScreen();
+    }
 
-			while( !quit )
-			{
-				while( SDL_PollEvent( &e ) != 0 )
-				{
-					if( e.type == SDL_QUIT )
-					{
-						quit = true;
-					}
+    SDL_Delay(16);
+  }
 
-				}
+  saveHighScore(recordScore); // Save high score
 
-				//Clear screen
-				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-				SDL_RenderClear( gRenderer );
-
-				SDL_RenderPresent( gRenderer );
-			}
-		}
-	}
-
-	close();
-
-	return 0;
+  close();
+  return 0;
 }

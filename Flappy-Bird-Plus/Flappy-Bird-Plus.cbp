@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Flappy Bird Plus" />
+		<Option title="Flappy-Bird-Plus" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Hell-Troll" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Flappy-Bird-Plus" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Hell-Troll" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Flappy-Bird-Plus" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -45,21 +45,6 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
-		<Unit filename="Assets/Fonts/KnightWarrior-w16n8.ttf" />
-		<Unit filename="Assets/Fonts/lazy.ttf" />
-		<Unit filename="Assets/Images/assets.png" />
-		<Unit filename="Assets/Images/icon.ico" />
-		<Unit filename="Assets/Images/icon.png" />
-		<Unit filename="Assets/Sounds/sounds_sfx_die.ogg" />
-		<Unit filename="Assets/Sounds/sounds_sfx_hit.ogg" />
-		<Unit filename="Assets/Sounds/sounds_sfx_point.ogg" />
-		<Unit filename="Assets/Sounds/sounds_sfx_swooshing.ogg" />
-		<Unit filename="Assets/Sounds/sounds_sfx_wing.ogg" />
-		<Unit filename="Background.h" />
-		<Unit filename="Bird.h" />
-		<Unit filename="Button.h" />
-		<Unit filename="RenderWindow.h" />
-		<Unit filename="TextureManager.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
