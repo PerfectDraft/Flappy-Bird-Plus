@@ -40,4 +40,4 @@ extern int currentScore;
 extern int recordScore;
 
 
-#endif // CONSTANT_H_INCLUDED
+#endif

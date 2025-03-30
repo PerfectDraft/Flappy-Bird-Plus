@@ -77,7 +77,7 @@ void drawGameOverScreen() {
   SDL_RenderCopy(gameRenderer, gameOverTexture, NULL, &gameOverRect);
   SDL_DestroyTexture(gameOverTexture);
 
-  // Hiển thị số điểm hiện tại
+  // Display current score
   ostringstream oss;
   oss << "Your Score: " << currentScore;
   SDL_Texture *currentScoreTexture = createTextTexture(oss.str(), textColor);
@@ -88,8 +88,8 @@ void drawGameOverScreen() {
   SDL_RenderCopy(gameRenderer, currentScoreTexture, NULL, &currentScoreRect);
   SDL_DestroyTexture(currentScoreTexture);
 
-  // Hiển thị số điểm cao nhất
-  oss.str(""); // Xóa nội dung trước đó
+  // Display highest score
+  oss.str(""); // Delete score before
   oss << "Highest Score: " << recordScore;
   SDL_Texture *highScoreTexture = createTextTexture(oss.str(), textColor);
   SDL_QueryTexture(highScoreTexture, NULL, NULL, &textWidth, &textHeight);
@@ -169,7 +169,7 @@ void drawHighScoreScreen() {
 
   ostringstream oss;
   oss << "Highest Score: " << recordScore;
-  // Điều chỉnh vị trí của High Score
+  // Custom position of "High Score"
   SDL_Texture *highScoreTexture = createTextTexture(oss.str(), textColor);
   int textWidth, textHeight;
   SDL_QueryTexture(highScoreTexture, NULL, NULL, &textWidth, &textHeight);
@@ -180,7 +180,7 @@ void drawHighScoreScreen() {
   SDL_RenderCopy(gameRenderer, highScoreTexture, NULL, &highScoreRect);
   SDL_DestroyTexture(highScoreTexture);
 
-  // Điều chỉnh vị trí của Press M to go back to Menu
+  // Custom position of "M back to menu"
   SDL_Texture *backToMenuTexture =
       createTextTexture("Press M to go back to Menu", textColor);
   SDL_QueryTexture(backToMenuTexture, NULL, NULL, &textWidth, &textHeight);
@@ -194,10 +194,11 @@ void drawHighScoreScreen() {
   SDL_RenderPresent(gameRenderer);
 }
 
+
+// Draw Tutorial Screen
 void drawTutorialScreen() {
   SDL_RenderClear(gameRenderer);
 
-  // Tải và hiển thị hình ảnh hướng dẫn
   SDL_Texture *tutorialTexture = loadTexture("Assets/Images/tutorial.png");
   if (tutorialTexture) {
     SDL_Rect tutorialRect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
@@ -207,12 +208,12 @@ void drawTutorialScreen() {
     printf("Failed to load tutorial image!\n");
   }
 
-  // Hiện đoạn văn bản hướng dẫn
+  // Color of tutorial phrase
   SDL_Color textColor = {255, 255, 255, 255};
 
-  // Tạo font với kích thước mới
+  // Create font with new size
   TTF_Font *font = TTF_OpenFont("Assets/Fonts/font.ttf",
-                                20); // Thay đổi kích thước font ở đây
+                                20);
   if (!font) {
     printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
     return;
@@ -224,7 +225,7 @@ void drawTutorialScreen() {
                          "math and physics of the coder :))",
                          "Good luck!!!"};
 
-  int yOffset = WINDOW_HEIGHT / 2 - 50; // Điều chỉnh vị trí y ban đầu
+  int yOffset = WINDOW_HEIGHT / 2 - 50;
   for (int i = 0; i < 3; ++i) {
     SDL_Surface *textSurface = TTF_RenderText_Solid(font, lines[i], textColor);
     SDL_Texture *instructionTexture =
@@ -237,7 +238,8 @@ void drawTutorialScreen() {
                                 textWidth, textHeight};
     SDL_RenderCopy(gameRenderer, instructionTexture, NULL, &instructionRect);
     SDL_DestroyTexture(instructionTexture);
-    yOffset += textHeight + 10; // Điều chỉnh khoảng cách giữa các dòng
+    yOffset += textHeight + 10;
+    //custom line space
   }
   int textWidth, textHeight;
   SDL_Texture *backToMenuTexture =
@@ -260,7 +262,7 @@ void drawLoadingScreen(int progress) {
   SDL_Rect loadingRect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
   SDL_RenderCopy(gameRenderer, loadingScreenTexture, NULL, &loadingRect);
 
-  // Vẽ thanh tiến trình
+  // Draw progess bar
   int barWidth = WINDOW_WIDTH * 0.8;
   int barHeight = 20;
   int barX = (WINDOW_WIDTH - barWidth) / 2;
@@ -269,7 +271,7 @@ void drawLoadingScreen(int progress) {
   SDL_SetRenderDrawColor(gameRenderer, 0, 255, 0, 255);
   SDL_RenderFillRect(gameRenderer, &progressBar);
 
-  // Vẽ phần trăm khi load game
+  // Draw percent when load game
   SDL_Color textColor = {255, 255, 255, 255};
   ostringstream oss;
   oss << progress << "%";

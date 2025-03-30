@@ -16,4 +16,4 @@ bool loadLoadingResources();
 bool loadGameResources();
 void close();
 
-#endif // INIT_H
+#endif

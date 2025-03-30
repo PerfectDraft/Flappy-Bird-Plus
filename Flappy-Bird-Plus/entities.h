@@ -15,4 +15,4 @@ public:
   int verticalDirection;
 };
 
-#endif // ENTITIES_H
+#endif

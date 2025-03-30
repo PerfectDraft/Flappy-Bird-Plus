@@ -74,21 +74,19 @@ bool init() {
       }
     }
 
-    // Khởi tạo SDL mixer
+    // Initialize SDL mixer
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
       printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n",
              Mix_GetError());
       success = false;
     }
 
-    // Tải hình ảnh biểu tượng
+    // Load icon of the window
     SDL_Surface *iconSurface = IMG_Load("Assets/Images/icon.png");
     if (iconSurface == NULL) {
       printf("Failed to load icon! SDL_image Error: %s\n", IMG_GetError());
     } else {
-      // Đặt biểu tượng cho cửa sổ
       SDL_SetWindowIcon(gameWindow, iconSurface);
-      // Giải phóng surface sau khi sử dụng
       SDL_FreeSurface(iconSurface);
     }
   }
@@ -96,7 +94,7 @@ bool init() {
   return success;
 }
 
-// Hàm load texture
+// Load texture
 SDL_Texture *loadTexture(const string &filePath) {
   SDL_Surface *surface = IMG_Load(filePath.c_str());
   SDL_Texture *texture = SDL_CreateTextureFromSurface(gameRenderer, surface);
@@ -104,7 +102,7 @@ SDL_Texture *loadTexture(const string &filePath) {
   return texture;
 }
 
-// Hàm tạo văn bản kết cấu
+// Created text on window
 SDL_Texture *createTextTexture(const string &text, SDL_Color color) {
   SDL_Surface *surface = TTF_RenderText_Solid(gameFont, text.c_str(), color);
   SDL_Texture *texture = SDL_CreateTextureFromSurface(gameRenderer, surface);
@@ -112,7 +110,7 @@ SDL_Texture *createTextTexture(const string &text, SDL_Color color) {
   return texture;
 }
 
-// Ảnh và nhạc ở màn hình load
+// image and music on loading screen
 bool loadLoadingResources() {
   bool success = true;
   loadingScreenTexture = loadTexture("Assets/Images/loading_screen.png");
@@ -132,7 +130,7 @@ bool loadLoadingResources() {
 bool loadGameResources() {
   bool success = true;
 
-  // tải ảnh
+  // load images
   textureBird = loadTexture("Assets/Images/bird.png");
   if (!textureBird) {
     cout << "Failed to load bird texture" << endl;
@@ -170,7 +168,7 @@ bool loadGameResources() {
     success = false;
   }
 
-  // tải tiếng
+  // load sounds
   soundFlap = Mix_LoadWAV("Assets/Sounds/wing.ogg");
   if (soundFlap == NULL) {
     printf("Failed to load flap sound effect! SDL_mixer Error: %s\n",
@@ -189,7 +187,7 @@ bool loadGameResources() {
            Mix_GetError());
     success = false;
   }
-  // tải nhạc
+  // load music
   musicMenu = Mix_LoadMUS("Assets/MusicBackground/Main_menu.mp3");
   if (musicMenu == NULL) {
     printf("Failed to load menu music! SDL_mixer Error: %s\n", Mix_GetError());
@@ -203,7 +201,6 @@ bool loadGameResources() {
   return success;
 }
 
-// Hàm giải phóng
 void close() {
   SDL_DestroyTexture(textureBird);
   if (texturePipeTop)
@@ -227,14 +224,12 @@ void close() {
   IMG_Quit();
   TTF_Quit();
   SDL_Quit();
-
-  // Free sound effects
+    //Free sound effect
   Mix_FreeChunk(soundFlap);
   Mix_FreeChunk(soundHit);
   Mix_FreeChunk(soundPoint);
-  // Free music
+
   Mix_FreeMusic(musicMenu);
   Mix_FreeMusic(musicGame);
-  // Quit SDL_mixer
   Mix_CloseAudio();
 }

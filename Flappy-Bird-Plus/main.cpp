@@ -38,7 +38,7 @@ GameState currentGameState = STATE_MENU;
 int currentScore = 0;
 int recordScore = 0;
 
-// Vòng lặp chính
+//main loop
 int main(int argc, char *argv[]) {
   srand(static_cast<unsigned int>(time(NULL)));
 
@@ -55,10 +55,10 @@ int main(int argc, char *argv[]) {
 
   Mix_PlayMusic(musicLoading, -1);
 
-  // Giả lập quá trình tải
+  // Simulation loading progess
   for (int progress = 0; progress <= 100; progress += 10) {
     drawLoadingScreen(progress);
-    SDL_Delay(100); // Giả lập thời gian tải
+    SDL_Delay(100); //Simulation time load
   }
 
   Mix_HaltMusic();

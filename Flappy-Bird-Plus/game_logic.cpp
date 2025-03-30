@@ -101,7 +101,6 @@ void processPlayerInput(bool &isRunning, FlappyBird &bird, GamePipe pipes[],
         // Update background size
         SDL_Rect backgroundRect = {0, 0, newWidth, newHeight};
         SDL_RenderCopy(gameRenderer, textureBackground, NULL, &backgroundRect);
-        // Update positions of elements if necessary
       }
     }
   }

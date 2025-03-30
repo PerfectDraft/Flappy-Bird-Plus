@@ -14,4 +14,4 @@ void drawHighScoreScreen();
 void drawTutorialScreen();
 void drawLoadingScreen(int progress);
 
-#endif // RENDER_H
+#endif

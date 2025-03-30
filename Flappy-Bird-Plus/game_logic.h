@@ -13,4 +13,4 @@ void refreshGameState(FlappyBird &bird, GamePipe pipes[], int &pipeCount,
 int loadHighScore();
 void saveHighScore(int highScore);
 
-#endif // GAME_LOGIC_H
+#endif
