@@ -45,6 +45,7 @@
 
 **_Note:_**
 - This is the first game that I coded and learned, so it is inevitable that there will be shortcomings and very limited features. I hope you understand and thank you for trying my game!
+- Link to video game demo: https://youtu.be/F1GS_On-cyI
   
 # Vietnamese - Tiếng việt
 # Giới thiệu
@@ -92,6 +93,7 @@
 
   **_Ghi chú:_**
 - Đây là game đầu tiên mà tôi code và tìm hiểu, do đó không thể tránh được những thiếu sót và tính năng còn rất hạn chế. Mong bạn thông cảm và cảm ơn vì đã thử con game của tôi!
+- Đây là video demo game: https://youtu.be/F1GS_On-cyI
 
 
 
