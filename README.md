@@ -42,6 +42,13 @@
 - https://lazyfoo.net/tutorials/SDL/index.php
 - https://www.youtube.com/@askarihassan2632
 - https://www.youtube.com/@codergopher8270
+- grok, chatgpt, aistudio
+
+**_Data fetch:_**
+- https://www.sounds-resource.com/mobile/flappybird/sound/5309/ (sound)
+- https://pixabay.com/vi/music/search/ph%C3%B2ng%20game%20lofi/ (sound)
+- google (image)
+- canva (image)
 
 **_Note:_**
 - This is the first game that I coded and learned, so it is inevitable that there will be shortcomings and very limited features. I hope you understand and thank you for trying my game!
@@ -90,6 +97,13 @@
 - https://lazyfoo.net/tutorials/SDL/index.php
 - https://www.youtube.com/@askarihassan2632
 - https://www.youtube.com/@codergopher8270
+- grok, chatgpt, aistudio
+  
+  **_Lấy dữ liệu:_**
+- https://www.sounds-resource.com/mobile/flappybird/sound/5309/ (âm thanh)
+- https://pixabay.com/vi/music/search/ph%C3%B2ng%20game%20lofi/ (âm thanh)
+- google (hình ảnh)
+- canva (hình ảnh)
 
   **_Ghi chú:_**
 - Đây là game đầu tiên mà tôi code và tìm hiểu, do đó không thể tránh được những thiếu sót và tính năng còn rất hạn chế. Mong bạn thông cảm và cảm ơn vì đã thử con game của tôi!
